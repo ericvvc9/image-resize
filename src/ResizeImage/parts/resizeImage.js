@@ -51,7 +51,7 @@ function resize(options, count, parentCanvas)
 
 		  if (count > 0)
 		  {
-		    func(count - 1, canvasForResize.el);
+		    funcXFE(count - 1, canvasForResize.el);
 		  }
 		  else
 		  {
