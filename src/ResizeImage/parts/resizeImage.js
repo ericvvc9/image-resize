@@ -33,8 +33,8 @@ function funcXFE(count, parentCanvas)
     0,
     0,
     parentCanvas.width * 0.5,
-    parentCanvas.height * 0.5,
-  );
+    parentCanvas.height * 0.5
+  )
 
   if (count > 0)
   {
