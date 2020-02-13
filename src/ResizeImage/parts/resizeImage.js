@@ -19,32 +19,6 @@ const defaultOptions = {
 };
 
 
-function funcXFE(count, parentCanvas)
-{
-  const pow = Math.pow(2, count);
-  let canvasForResize = new Canvas(
-    options.width * pow,
-    options.height * pow,
-    options.bgColor
-  );
-
-  canvasForResize.ctx.drawImage(
-    parentCanvas,
-    0,
-    0,
-    parentCanvas.width * 0.5,
-    parentCanvas.height * 0.5
-  )
-
-  if (count > 0)
-  {
-    func(count - 1, canvasForResize.el);
-  }
-  else
-  {
-    resolve(canvasForResize.el);
-  }
-}
 
 /**
  * Resize canvas
@@ -58,6 +32,32 @@ function resize(options, count, parentCanvas)
 {
 	return new Promise(resolve => {
 
+		function funcXFE(count, parentCanvas)
+		{
+		  const pow = Math.pow(2, count);
+		  let canvasForResize = new Canvas(
+		    options.width * pow,
+		    options.height * pow,
+		    options.bgColor
+		  );
+
+		  canvasForResize.ctx.drawImage(
+		    parentCanvas,
+		    0,
+		    0,
+		    parentCanvas.width * 0.5,
+		    parentCanvas.height * 0.5
+		  )
+
+		  if (count > 0)
+		  {
+		    func(count - 1, canvasForResize.el);
+		  }
+		  else
+		  {
+		    resolve(canvasForResize.el);
+		  }
+		}
 		funcXFE(count - 1, parentCanvas);
 	});
 }
